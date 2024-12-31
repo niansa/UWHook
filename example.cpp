@@ -3,7 +3,7 @@
 #include <uwhook.hpp>
 
 
-__declspec(noinline) // Only needed because definition is in same file as caller
+__declspec(noinline) // Will not hook inlined functions
 void actual_test0(int a) {
     printf("actual_test0(%d) called\n", a);
     fflush(stdout);
