@@ -27,6 +27,7 @@ void test_hook1(int a) {
     auto actual_fnc = hook0->getFunction<void (int)>();
     actual_fnc(a*2);
 }
+#ifdef UWHOOK_TRAMPOLINE_SUPPORT
 void test_hook2(int a) {
     printf("test_hook2(%d) called instead of function at 0x%p\n", a, UWHook::getTrampolineCaller());
     fflush(stdout);
@@ -34,6 +35,7 @@ void test_hook2(int a) {
     hook0->getFunction<void (int)>()(a);
 }
 UWHOOK_TRAMPOLINE(test_hook2)
+#endif
 
 
 int main() {
@@ -48,6 +50,7 @@ int main() {
     hook0.emplace(actual_test0, test_hook1);
     actual_test0(3);
     printf("\n");
+#ifdef UWHOOK_TRAMPOLINE_SUPPORT
     hook0.emplace(actual_test0, uwHookTrampoline_test_hook2, true);
     hook1.emplace(actual_test1, uwHookTrampoline_test_hook2, true);
     actual_test0(4);
@@ -56,5 +59,6 @@ int main() {
     printf("\n");
     actual_test1(5);
     printf("\n");
+#endif
     puts("End");
 }

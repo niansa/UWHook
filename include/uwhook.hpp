@@ -2,6 +2,9 @@
 
 #include <array>
 #include <cstdint>
+#if !defined(_MSC_VER) || defined(__clang__)
+#define UWHOOK_TRAMPOLINE_SUPPORT
+#endif
 
 
 extern void *uwHookCallerRip;
@@ -56,6 +59,7 @@ public:
 };
 
 
+#ifdef UWHOOK_TRAMPOLINE_SUPPORT
 #define UWHOOK_TRAMPOLINE(hook) \
     __attribute__((naked)) \
     static void uwHookTrampoline_##hook () { \
@@ -63,3 +67,4 @@ public:
         __asm mov uwHookCallerRip, r10 \
         __asm jmp hook \
     }
+#endif
