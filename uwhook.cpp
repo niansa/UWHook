@@ -7,7 +7,9 @@
 #include <processthreadsapi.h>
 
 
+#ifdef __clang__
 __attribute__((used))
+#endif
 void *uwHookCallerRip;
 
 
