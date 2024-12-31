@@ -17,3 +17,8 @@ Minimal native function hooking library for x86_64 on Windows.
  * Can't pass user data to hook function
  * Requires function padding of at least 12 bytes in hooked code if any hooked function is shorter than 12 bytes
  * Allows no more than one hook on a single function
+
+## Use cases
+
+ * Reverse engineering
+ * Game modding (works with il2cpp!)
