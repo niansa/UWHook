@@ -34,8 +34,12 @@ public:
     static void *getTrampolineCaller();
 
     template<typename fncT>
-    fncT *getFunction() {
+    fncT *getFunction() const {
         return reinterpret_cast<fncT*>(fnc);
+    }
+
+    void *getAddr() const {
+        return fnc;
     }
 
     bool isActive() const {
