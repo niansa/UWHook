@@ -18,7 +18,7 @@ class UWHook {
 
     static constexpr unsigned original_len = 14;
     std::array<uint8_t, original_len> original;
-    bool released;
+    bool released = true;
 
     bool release();
     bool restore();
