@@ -20,6 +20,9 @@ class UWHook {
     std::array<uint8_t, original_len> original;
     bool released = true;
 
+#ifdef UWHOOK_C_API
+public:
+#endif
     bool release();
     bool restore();
 
