@@ -1,6 +1,6 @@
 # UWHook
 
-Minimal native function hooking library for x86_64 on Windows.
+Minimal native function hooking library for x86_64 on Windows and Linux.
 
 ## Features
 
@@ -12,7 +12,7 @@ Minimal native function hooking library for x86_64 on Windows.
 
 ## Limitations
 
- * Only works on Windows for x86_64 (64 bit x86) programs
+ * Only works on Windows and Linux for x86_64 (64 bit x86) programs
  * Won't hook inlined function calls
  * Can't pass user data to hook function
  * Requires function padding of at least 12 bytes in hooked code if any hooked function is shorter than 12 bytes
