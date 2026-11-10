@@ -57,7 +57,7 @@ public:
 };
 
 #ifdef UWHOOK_TRAMPOLINE_SUPPORT
-#ifdef _WIN32
+#ifdef _MSC_VER
 #define UWHOOK_TRAMPOLINE(hook)                                                                                                                                \
     __attribute__((naked)) static void uwHookTrampoline_##hook() { __asm pop r10 __asm mov uwHookCallerRip, r10 __asm jmp hook }
 #else
